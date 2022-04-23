@@ -1,0 +1,193 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, rgb(79, 207, 249), green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.logotext {
+    text-align: center;
+    color: white;
+}
+
+main {
+    width: 80%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    border-radius: 15px;
+}
+
+.coluna1 {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(3, auto);
+}
+.quadrado1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid aliceblue;
+    cursor: pointer;
+    position: relative;
+}
+
+.quadrado1:nth-child(1),
+.quadrado1:nth-child(2),
+.quadrado1:nth-child(3) {
+    border-top: none;
+}
+.quadrado1:nth-child(7),
+.quadrado1:nth-child(8),
+.quadrado1:nth-child(9) {
+    border-bottom: none;
+}
+.quadrado1:nth-child(1),
+.quadrado1:nth-child(4),
+.quadrado1:nth-child(7) {
+    border-left: none;
+}
+.quadrado1:nth-child(3),
+.quadrado1:nth-child(6),
+.quadrado1:nth-child(9) {
+    border-right: none;
+}
+/*  X */
+.quadrado1.x::before,
+.quadrado1.x::after,
+.coluna1.x .quadrado1:not(.x):not(.circle):hover::after,
+.coluna1.x .quadrado1:not(.x):not(.circle):hover::before {
+    content: '';
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.9);
+    background-color: white;
+    position: absolute;
+}
+/* OPACIDADE */
+.coluna1.x .quadrado1:not(.x):not(.circle):hover::after,
+.coluna1.x .quadrado1:not(.x):not(.circle):hover::before{
+    background:rgba(255, 255, 255, 0.313);
+}
+/* - OPACIDADE */
+.quadrado1.x::before,
+.coluna1.x .quadrado1:not(.x):not(.circle):hover::before {
+    transform: rotate(45deg);
+}
+.quadrado1.x::after,
+.coluna1.x .quadrado1:not(.x):not(.circle):hover::after{
+    transform: rotate(-45deg);
+}
+
+/*  circle */
+
+.quadrado1.circle::before,
+.quadrado1.circle::after,
+.coluna1.circle .quadrado1:not(.x):not(.circle):hover::after,
+.coluna1.circle .quadrado1:not(.x):not(.circle):hover::before  {
+    content: '';
+    height: calc(100px * 0.9);
+    width: calc(100px * 0.9);
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.quadrado1.x, .quadrado1.circle {
+    cursor: not-allowed;
+}
+
+/* opaccity circle */
+.coluna1.circle .quadrado1:not(.x):not(.circle):hover::after,
+.coluna1.circle .quadrado1:not(.x):not(.circle):hover::before  {
+    background:rgba(255, 255, 255, 0.313);
+}
+
+/*  msg de vitória  */
+
+.winning {  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.419);
+    display: none;
+}
+.winning button {
+    font-size: 2.5em;
+    background-color: rgb(0, 255, 149);
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    margin-top: 16px;
+    color: aliceblue;
+    transition: .3s ease;
+    
+}
+.winning button:hover {
+    transform: scale(1.1);
+    color:rgb(0, 255, 149);
+    background-color: aliceblue;
+}
+.winning h1 {
+    font-size: 4.4em;
+    color: white;
+}
+
+.show-winning-message {
+    display: flex;
+}
+@media (max-width: 780px){
+    .coluna1 {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        justify-content: center;
+        grid-template-columns: repeat(3, auto);
+    }
+    .quadrado1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 130px;
+        height: 130px;
+        border: 2px solid aliceblue;
+        cursor: pointer;
+        position: relative;
+    }
+    main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px auto;
+        border-radius: 15px;
+    }
+}
